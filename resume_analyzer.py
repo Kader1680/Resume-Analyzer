@@ -7,14 +7,14 @@ number_of_pages = len(reader.pages)
 
 def extract_text_from_pdf():
     text = ""
-    for page in reader.pages:  # <-- FIXED HERE
+    for page in reader.pages:   
         text += page.extract_text()
     return text
 
 resume_text = extract_text_from_pdf()
 
 print("\n--- Resume Text ---")
-print(resume_text[:500])  # first 500 characters only
+print(resume_text[:500])   
 
 print("\n--- Job Description ---")
 print(inputTextDescrpition[:500])
@@ -24,7 +24,6 @@ import re
 def get_keywords(text):
     text = text.lower()
     
-    # 2. Remove punctuation using regex
     text = re.sub(r'[^a-z\s]', '', text)
     
     words = text.split()
